@@ -7,24 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0713FC111D600EAC0057A15B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC101D600EAC0057A15B /* main.m */; };
-		0713FC141D600EAC0057A15B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC131D600EAC0057A15B /* AppDelegate.m */; };
-		0713FC171D600EAC0057A15B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC161D600EAC0057A15B /* ViewController.m */; };
-		0713FC1A1D600EAC0057A15B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0713FC181D600EAC0057A15B /* Main.storyboard */; };
-		0713FC1C1D600EAC0057A15B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0713FC1B1D600EAC0057A15B /* Assets.xcassets */; };
-		0713FC1F1D600EAC0057A15B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0713FC1D1D600EAC0057A15B /* LaunchScreen.storyboard */; };
 		0713FC2A1D600EAC0057A15B /* KCPhotoBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC291D600EAC0057A15B /* KCPhotoBrowserTests.m */; };
 		0713FC351D600EAC0057A15B /* KCPhotoBrowserUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC341D600EAC0057A15B /* KCPhotoBrowserUITests.m */; };
-		0713FC471D600EE10057A15B /* KCPhotoSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC461D600EE10057A15B /* KCPhotoSelection.m */; };
-		0713FC501D6010B00057A15B /* KCPhotoSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC4F1D6010B00057A15B /* KCPhotoSelectionCell.m */; };
-		0713FC7B1D62EA350057A15B /* KCPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC711D62EA350057A15B /* KCPhoto.m */; };
-		0713FC7C1D62EA350057A15B /* KCPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC731D62EA350057A15B /* KCPhotoBrowser.m */; };
-		0713FC7D1D62EA350057A15B /* KCPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC751D62EA350057A15B /* KCPhotoBrowserCell.m */; };
-		0713FC7E1D62EA350057A15B /* KCPhotoTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC781D62EA350057A15B /* KCPhotoTransition.m */; };
-		0713FC7F1D62EA350057A15B /* UIImage+KCPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC7A1D62EA350057A15B /* UIImage+KCPhoto.m */; };
-		0713FC931D62F1AC0057A15B /* KCPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FC921D62F1AC0057A15B /* KCPhotoProgressView.m */; };
-		0713FCB21D6557D10057A15B /* HCQLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713FCB11D6557D10057A15B /* HCQLogo.m */; };
-		0713FCCA1D658D980057A15B /* Resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0713FCC91D658D980057A15B /* Resource.bundle */; };
+		07B3ABD91D65A617006818DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABC11D65A617006818DE /* AppDelegate.m */; };
+		07B3ABDA1D65A617006818DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABC21D65A617006818DE /* Assets.xcassets */; };
+		07B3ABDB1D65A617006818DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABC41D65A617006818DE /* LaunchScreen.storyboard */; };
+		07B3ABDC1D65A617006818DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABC61D65A617006818DE /* Main.storyboard */; };
+		07B3ABDD1D65A617006818DE /* HCQLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABC91D65A617006818DE /* HCQLogo.m */; };
+		07B3ABDE1D65A617006818DE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABCA1D65A617006818DE /* Info.plist */; };
+		07B3ABDF1D65A617006818DE /* KCPhotoSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABCC1D65A617006818DE /* KCPhotoSelection.m */; };
+		07B3ABE01D65A617006818DE /* KCPhotoSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABCE1D65A617006818DE /* KCPhotoSelectionCell.m */; };
+		07B3ABE11D65A617006818DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABCF1D65A617006818DE /* main.m */; };
+		07B3ABE21D65A617006818DE /* KCPhotoAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABD21D65A617006818DE /* KCPhotoAction.m */; };
+		07B3ABE31D65A617006818DE /* KCPhotoActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABD41D65A617006818DE /* KCPhotoActionController.m */; };
+		07B3ABE41D65A617006818DE /* KCPhotoActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABD61D65A617006818DE /* KCPhotoActionView.m */; };
+		07B3ABE51D65A617006818DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABD81D65A617006818DE /* ViewController.m */; };
+		07B3ABF41D65A62A006818DE /* KCPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABE81D65A62A006818DE /* KCPhoto.m */; };
+		07B3ABF51D65A62A006818DE /* KCPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABEA1D65A62A006818DE /* KCPhotoBrowser.m */; };
+		07B3ABF61D65A62A006818DE /* KCPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABEC1D65A62A006818DE /* KCPhotoBrowserCell.m */; };
+		07B3ABF71D65A62A006818DE /* KCPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABEE1D65A62A006818DE /* KCPhotoProgressView.m */; };
+		07B3ABF81D65A62A006818DE /* KCPhotoTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABF01D65A62A006818DE /* KCPhotoTransition.m */; };
+		07B3ABFA1D65A62A006818DE /* UIImage+KCPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABF31D65A62A006818DE /* UIImage+KCPhoto.m */; };
+		07B3ABFE1D65B8CF006818DE /* icon_action@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABFC1D65B8CF006818DE /* icon_action@2x.png */; };
+		07B3ABFF1D65B8CF006818DE /* icon_action@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABFD1D65B8CF006818DE /* icon_action@3x.png */; };
 		4E8BB9B759285AE8659B6F32 /* Pods_KCPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFD8934424D920030256DDC /* Pods_KCPhotoBrowser.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,40 +52,47 @@
 
 /* Begin PBXFileReference section */
 		0713FC0C1D600EAC0057A15B /* KCPhotoBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KCPhotoBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0713FC101D600EAC0057A15B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0713FC121D600EAC0057A15B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0713FC131D600EAC0057A15B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0713FC151D600EAC0057A15B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0713FC161D600EAC0057A15B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0713FC191D600EAC0057A15B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0713FC1B1D600EAC0057A15B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0713FC1E1D600EAC0057A15B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0713FC201D600EAC0057A15B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0713FC251D600EAC0057A15B /* KCPhotoBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KCPhotoBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0713FC291D600EAC0057A15B /* KCPhotoBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KCPhotoBrowserTests.m; sourceTree = "<group>"; };
 		0713FC2B1D600EAC0057A15B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0713FC301D600EAC0057A15B /* KCPhotoBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KCPhotoBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0713FC341D600EAC0057A15B /* KCPhotoBrowserUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KCPhotoBrowserUITests.m; sourceTree = "<group>"; };
 		0713FC361D600EAC0057A15B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0713FC451D600EE10057A15B /* KCPhotoSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoSelection.h; sourceTree = "<group>"; };
-		0713FC461D600EE10057A15B /* KCPhotoSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoSelection.m; sourceTree = "<group>"; };
-		0713FC4E1D6010B00057A15B /* KCPhotoSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoSelectionCell.h; sourceTree = "<group>"; };
-		0713FC4F1D6010B00057A15B /* KCPhotoSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoSelectionCell.m; sourceTree = "<group>"; };
-		0713FC701D62EA350057A15B /* KCPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhoto.h; sourceTree = "<group>"; };
-		0713FC711D62EA350057A15B /* KCPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhoto.m; sourceTree = "<group>"; };
-		0713FC721D62EA350057A15B /* KCPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoBrowser.h; sourceTree = "<group>"; };
-		0713FC731D62EA350057A15B /* KCPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoBrowser.m; sourceTree = "<group>"; };
-		0713FC741D62EA350057A15B /* KCPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoBrowserCell.h; sourceTree = "<group>"; };
-		0713FC751D62EA350057A15B /* KCPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoBrowserCell.m; sourceTree = "<group>"; };
-		0713FC771D62EA350057A15B /* KCPhotoTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoTransition.h; sourceTree = "<group>"; };
-		0713FC781D62EA350057A15B /* KCPhotoTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoTransition.m; sourceTree = "<group>"; };
-		0713FC791D62EA350057A15B /* UIImage+KCPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KCPhoto.h"; sourceTree = "<group>"; };
-		0713FC7A1D62EA350057A15B /* UIImage+KCPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KCPhoto.m"; sourceTree = "<group>"; };
-		0713FC911D62F1AC0057A15B /* KCPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoProgressView.h; sourceTree = "<group>"; };
-		0713FC921D62F1AC0057A15B /* KCPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoProgressView.m; sourceTree = "<group>"; };
-		0713FCB01D6557D10057A15B /* HCQLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCQLogo.h; sourceTree = "<group>"; };
-		0713FCB11D6557D10057A15B /* HCQLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCQLogo.m; sourceTree = "<group>"; };
-		0713FCC91D658D980057A15B /* Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resource.bundle; sourceTree = "<group>"; };
+		07B3ABC01D65A617006818DE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		07B3ABC11D65A617006818DE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		07B3ABC21D65A617006818DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07B3ABC51D65A617006818DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		07B3ABC71D65A617006818DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		07B3ABC81D65A617006818DE /* HCQLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCQLogo.h; sourceTree = "<group>"; };
+		07B3ABC91D65A617006818DE /* HCQLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCQLogo.m; sourceTree = "<group>"; };
+		07B3ABCA1D65A617006818DE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07B3ABCB1D65A617006818DE /* KCPhotoSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoSelection.h; sourceTree = "<group>"; };
+		07B3ABCC1D65A617006818DE /* KCPhotoSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoSelection.m; sourceTree = "<group>"; };
+		07B3ABCD1D65A617006818DE /* KCPhotoSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoSelectionCell.h; sourceTree = "<group>"; };
+		07B3ABCE1D65A617006818DE /* KCPhotoSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoSelectionCell.m; sourceTree = "<group>"; };
+		07B3ABCF1D65A617006818DE /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		07B3ABD11D65A617006818DE /* KCPhotoAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoAction.h; sourceTree = "<group>"; };
+		07B3ABD21D65A617006818DE /* KCPhotoAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoAction.m; sourceTree = "<group>"; };
+		07B3ABD31D65A617006818DE /* KCPhotoActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoActionController.h; sourceTree = "<group>"; };
+		07B3ABD41D65A617006818DE /* KCPhotoActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoActionController.m; sourceTree = "<group>"; };
+		07B3ABD51D65A617006818DE /* KCPhotoActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoActionView.h; sourceTree = "<group>"; };
+		07B3ABD61D65A617006818DE /* KCPhotoActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoActionView.m; sourceTree = "<group>"; };
+		07B3ABD71D65A617006818DE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		07B3ABD81D65A617006818DE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		07B3ABE71D65A62A006818DE /* KCPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhoto.h; sourceTree = "<group>"; };
+		07B3ABE81D65A62A006818DE /* KCPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhoto.m; sourceTree = "<group>"; };
+		07B3ABE91D65A62A006818DE /* KCPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoBrowser.h; sourceTree = "<group>"; };
+		07B3ABEA1D65A62A006818DE /* KCPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoBrowser.m; sourceTree = "<group>"; };
+		07B3ABEB1D65A62A006818DE /* KCPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoBrowserCell.h; sourceTree = "<group>"; };
+		07B3ABEC1D65A62A006818DE /* KCPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoBrowserCell.m; sourceTree = "<group>"; };
+		07B3ABED1D65A62A006818DE /* KCPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoProgressView.h; sourceTree = "<group>"; };
+		07B3ABEE1D65A62A006818DE /* KCPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoProgressView.m; sourceTree = "<group>"; };
+		07B3ABEF1D65A62A006818DE /* KCPhotoTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoTransition.h; sourceTree = "<group>"; };
+		07B3ABF01D65A62A006818DE /* KCPhotoTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoTransition.m; sourceTree = "<group>"; };
+		07B3ABF21D65A62A006818DE /* UIImage+KCPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KCPhoto.h"; sourceTree = "<group>"; };
+		07B3ABF31D65A62A006818DE /* UIImage+KCPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KCPhoto.m"; sourceTree = "<group>"; };
+		07B3ABFC1D65B8CF006818DE /* icon_action@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_action@2x.png"; sourceTree = "<group>"; };
+		07B3ABFD1D65B8CF006818DE /* icon_action@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_action@3x.png"; sourceTree = "<group>"; };
 		533CD112D725C82273B0CC1A /* Pods-KCPhotoBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		AC0074E192A382550DCBEC0A /* Pods-KCPhotoBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		EEFD8934424D920030256DDC /* Pods_KCPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KCPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,22 +149,24 @@
 		0713FC0E1D600EAC0057A15B /* KCPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				0713FC6F1D62EA350057A15B /* KCPhotoBrowser */,
-				0713FC121D600EAC0057A15B /* AppDelegate.h */,
-				0713FC131D600EAC0057A15B /* AppDelegate.m */,
-				0713FC151D600EAC0057A15B /* ViewController.h */,
-				0713FC161D600EAC0057A15B /* ViewController.m */,
-				0713FC181D600EAC0057A15B /* Main.storyboard */,
-				0713FC1B1D600EAC0057A15B /* Assets.xcassets */,
-				0713FC1D1D600EAC0057A15B /* LaunchScreen.storyboard */,
-				0713FC201D600EAC0057A15B /* Info.plist */,
+				07B3ABFB1D65B8CF006818DE /* Resource */,
+				07B3ABE61D65A62A006818DE /* KCPhotoBrowser */,
+				07B3ABC01D65A617006818DE /* AppDelegate.h */,
+				07B3ABC11D65A617006818DE /* AppDelegate.m */,
+				07B3ABC21D65A617006818DE /* Assets.xcassets */,
+				07B3ABC31D65A617006818DE /* Base.lproj */,
+				07B3ABC81D65A617006818DE /* HCQLogo.h */,
+				07B3ABC91D65A617006818DE /* HCQLogo.m */,
+				07B3ABCA1D65A617006818DE /* Info.plist */,
+				07B3ABCB1D65A617006818DE /* KCPhotoSelection.h */,
+				07B3ABCC1D65A617006818DE /* KCPhotoSelection.m */,
+				07B3ABCD1D65A617006818DE /* KCPhotoSelectionCell.h */,
+				07B3ABCE1D65A617006818DE /* KCPhotoSelectionCell.m */,
+				07B3ABCF1D65A617006818DE /* main.m */,
+				07B3ABD01D65A617006818DE /* Other */,
+				07B3ABD71D65A617006818DE /* ViewController.h */,
+				07B3ABD81D65A617006818DE /* ViewController.m */,
 				0713FC0F1D600EAC0057A15B /* Supporting Files */,
-				0713FC451D600EE10057A15B /* KCPhotoSelection.h */,
-				0713FC461D600EE10057A15B /* KCPhotoSelection.m */,
-				0713FC4E1D6010B00057A15B /* KCPhotoSelectionCell.h */,
-				0713FC4F1D6010B00057A15B /* KCPhotoSelectionCell.m */,
-				0713FCB01D6557D10057A15B /* HCQLogo.h */,
-				0713FCB11D6557D10057A15B /* HCQLogo.m */,
 			);
 			path = KCPhotoBrowser;
 			sourceTree = "<group>";
@@ -160,7 +174,6 @@
 		0713FC0F1D600EAC0057A15B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0713FC101D600EAC0057A15B /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -183,24 +196,56 @@
 			path = KCPhotoBrowserUITests;
 			sourceTree = "<group>";
 		};
-		0713FC6F1D62EA350057A15B /* KCPhotoBrowser */ = {
+		07B3ABC31D65A617006818DE /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				0713FCC91D658D980057A15B /* Resource.bundle */,
-				0713FC701D62EA350057A15B /* KCPhoto.h */,
-				0713FC711D62EA350057A15B /* KCPhoto.m */,
-				0713FC721D62EA350057A15B /* KCPhotoBrowser.h */,
-				0713FC731D62EA350057A15B /* KCPhotoBrowser.m */,
-				0713FC741D62EA350057A15B /* KCPhotoBrowserCell.h */,
-				0713FC751D62EA350057A15B /* KCPhotoBrowserCell.m */,
-				0713FC771D62EA350057A15B /* KCPhotoTransition.h */,
-				0713FC781D62EA350057A15B /* KCPhotoTransition.m */,
-				0713FC791D62EA350057A15B /* UIImage+KCPhoto.h */,
-				0713FC7A1D62EA350057A15B /* UIImage+KCPhoto.m */,
-				0713FC911D62F1AC0057A15B /* KCPhotoProgressView.h */,
-				0713FC921D62F1AC0057A15B /* KCPhotoProgressView.m */,
+				07B3ABC41D65A617006818DE /* LaunchScreen.storyboard */,
+				07B3ABC61D65A617006818DE /* Main.storyboard */,
 			);
-			path = KCPhotoBrowser;
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		07B3ABD01D65A617006818DE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				07B3ABD11D65A617006818DE /* KCPhotoAction.h */,
+				07B3ABD21D65A617006818DE /* KCPhotoAction.m */,
+				07B3ABD31D65A617006818DE /* KCPhotoActionController.h */,
+				07B3ABD41D65A617006818DE /* KCPhotoActionController.m */,
+				07B3ABD51D65A617006818DE /* KCPhotoActionView.h */,
+				07B3ABD61D65A617006818DE /* KCPhotoActionView.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		07B3ABE61D65A62A006818DE /* KCPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				07B3ABE71D65A62A006818DE /* KCPhoto.h */,
+				07B3ABE81D65A62A006818DE /* KCPhoto.m */,
+				07B3ABE91D65A62A006818DE /* KCPhotoBrowser.h */,
+				07B3ABEA1D65A62A006818DE /* KCPhotoBrowser.m */,
+				07B3ABEB1D65A62A006818DE /* KCPhotoBrowserCell.h */,
+				07B3ABEC1D65A62A006818DE /* KCPhotoBrowserCell.m */,
+				07B3ABED1D65A62A006818DE /* KCPhotoProgressView.h */,
+				07B3ABEE1D65A62A006818DE /* KCPhotoProgressView.m */,
+				07B3ABEF1D65A62A006818DE /* KCPhotoTransition.h */,
+				07B3ABF01D65A62A006818DE /* KCPhotoTransition.m */,
+				07B3ABF21D65A62A006818DE /* UIImage+KCPhoto.h */,
+				07B3ABF31D65A62A006818DE /* UIImage+KCPhoto.m */,
+			);
+			name = KCPhotoBrowser;
+			path = ../../KCPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		07B3ABFB1D65B8CF006818DE /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				07B3ABFC1D65B8CF006818DE /* icon_action@2x.png */,
+				07B3ABFD1D65B8CF006818DE /* icon_action@3x.png */,
+			);
+			name = Resource;
+			path = ../../Resource;
 			sourceTree = "<group>";
 		};
 		2AE64FC28BD63744C577AE87 /* Pods */ = {
@@ -329,10 +374,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0713FC1F1D600EAC0057A15B /* LaunchScreen.storyboard in Resources */,
-				0713FC1C1D600EAC0057A15B /* Assets.xcassets in Resources */,
-				0713FC1A1D600EAC0057A15B /* Main.storyboard in Resources */,
-				0713FCCA1D658D980057A15B /* Resource.bundle in Resources */,
+				07B3ABDE1D65A617006818DE /* Info.plist in Resources */,
+				07B3ABDC1D65A617006818DE /* Main.storyboard in Resources */,
+				07B3ABFF1D65B8CF006818DE /* icon_action@3x.png in Resources */,
+				07B3ABDA1D65A617006818DE /* Assets.xcassets in Resources */,
+				07B3ABFE1D65B8CF006818DE /* icon_action@2x.png in Resources */,
+				07B3ABDB1D65A617006818DE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,18 +452,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0713FC7B1D62EA350057A15B /* KCPhoto.m in Sources */,
-				0713FCB21D6557D10057A15B /* HCQLogo.m in Sources */,
-				0713FC7E1D62EA350057A15B /* KCPhotoTransition.m in Sources */,
-				0713FC171D600EAC0057A15B /* ViewController.m in Sources */,
-				0713FC471D600EE10057A15B /* KCPhotoSelection.m in Sources */,
-				0713FC7F1D62EA350057A15B /* UIImage+KCPhoto.m in Sources */,
-				0713FC7D1D62EA350057A15B /* KCPhotoBrowserCell.m in Sources */,
-				0713FC931D62F1AC0057A15B /* KCPhotoProgressView.m in Sources */,
-				0713FC141D600EAC0057A15B /* AppDelegate.m in Sources */,
-				0713FC7C1D62EA350057A15B /* KCPhotoBrowser.m in Sources */,
-				0713FC111D600EAC0057A15B /* main.m in Sources */,
-				0713FC501D6010B00057A15B /* KCPhotoSelectionCell.m in Sources */,
+				07B3ABE51D65A617006818DE /* ViewController.m in Sources */,
+				07B3ABF51D65A62A006818DE /* KCPhotoBrowser.m in Sources */,
+				07B3ABE11D65A617006818DE /* main.m in Sources */,
+				07B3ABF61D65A62A006818DE /* KCPhotoBrowserCell.m in Sources */,
+				07B3ABFA1D65A62A006818DE /* UIImage+KCPhoto.m in Sources */,
+				07B3ABE31D65A617006818DE /* KCPhotoActionController.m in Sources */,
+				07B3ABF81D65A62A006818DE /* KCPhotoTransition.m in Sources */,
+				07B3ABD91D65A617006818DE /* AppDelegate.m in Sources */,
+				07B3ABDD1D65A617006818DE /* HCQLogo.m in Sources */,
+				07B3ABDF1D65A617006818DE /* KCPhotoSelection.m in Sources */,
+				07B3ABF71D65A62A006818DE /* KCPhotoProgressView.m in Sources */,
+				07B3ABE21D65A617006818DE /* KCPhotoAction.m in Sources */,
+				07B3ABE01D65A617006818DE /* KCPhotoSelectionCell.m in Sources */,
+				07B3ABF41D65A62A006818DE /* KCPhoto.m in Sources */,
+				07B3ABE41D65A617006818DE /* KCPhotoActionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,20 +502,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0713FC181D600EAC0057A15B /* Main.storyboard */ = {
+		07B3ABC41D65A617006818DE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0713FC191D600EAC0057A15B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0713FC1D1D600EAC0057A15B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0713FC1E1D600EAC0057A15B /* Base */,
+				07B3ABC51D65A617006818DE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		07B3ABC61D65A617006818DE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07B3ABC71D65A617006818DE /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

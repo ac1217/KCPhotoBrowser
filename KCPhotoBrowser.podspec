@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KCPhotoBrowser"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "好用轻量级图片浏览器."
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-好用轻量级图片浏览器
+好用轻量级图片浏览器,使用简单。
                    DESC
 
   s.homepage     = "https://github.com/ac1217/KCPhotoBrowser"
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ac1217/KCPhotoBrowser.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/ac1217/KCPhotoBrowser.git", :tag => "0.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-    s.resources = "KCPhotoBrowser/Resource.bundle/*.png"
+    s.resources = "Resource/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

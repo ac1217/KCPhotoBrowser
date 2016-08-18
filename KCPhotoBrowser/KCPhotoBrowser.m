@@ -300,7 +300,7 @@
 {
     if (!_actionBtn) {
         _actionBtn = [UIButton new];
-        [_actionBtn setImage:[UIImage imageNamed:@"Resource.bundle/icon_action"] forState:UIControlStateNormal];
+        [_actionBtn setImage:[UIImage imageNamed:@"icon_action"] forState:UIControlStateNormal];
         [_actionBtn addTarget:self action:@selector(actionBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         CGFloat wh = 64;
