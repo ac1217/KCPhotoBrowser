@@ -9,6 +9,7 @@
 #import "KCPhotoBrowser.h"
 #import "KCPhotoBrowserCell.h"
 #import "KCPhotoTransition.h"
+#import "UIImage+KCPhoto.h"
 
 @interface KCPhotoBrowser ()<UIViewControllerTransitioningDelegate,UICollectionViewDataSource, UICollectionViewDelegate>{
     NSInteger _currentIndex;
@@ -300,7 +301,7 @@
 {
     if (!_actionBtn) {
         _actionBtn = [UIButton new];
-        [_actionBtn setImage:[UIImage imageNamed:@"icon_action"] forState:UIControlStateNormal];
+        [_actionBtn setImage:[UIImage kc_imageWithNamed:@"icon_action"] forState:UIControlStateNormal];
         [_actionBtn addTarget:self action:@selector(actionBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         CGFloat wh = 64;

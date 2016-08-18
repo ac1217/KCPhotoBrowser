@@ -13,4 +13,7 @@
 - (CGSize)kc_imageDisplaySize;
 - (CGRect)kc_imageDisplayFrame;
 
+
++ (UIImage *)kc_imageWithNamed:(NSString *)named;
+
 @end

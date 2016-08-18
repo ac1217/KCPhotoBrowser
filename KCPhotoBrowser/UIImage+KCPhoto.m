@@ -42,4 +42,30 @@
     return CGRectMake(x, y, imageSize.width, imageSize.height);
 }
 
+
++ (UIImage *)kc_imageWithNamed:(NSString *)named
+{
+    if ([UIScreen mainScreen].bounds.size.width == 414) {
+        
+        named = [named stringByAppendingString:@"@3x"];
+    }else {
+        
+        named = [named stringByAppendingString:@"@2x"];
+    }
+    
+    
+    NSBundle *resourceBundle = [NSBundle bundleForClass:NSClassFromString(@"KCPhoto")];
+    
+    NSString *resourcePath = [resourceBundle pathForResource:@"KCPhotoBrowser" ofType:@"bundle"];
+    
+    if (resourcePath) {
+        resourceBundle = [NSBundle bundleWithPath:resourcePath];
+    }
+    
+    resourcePath = [resourceBundle pathForResource:named ofType:@"png"];
+    
+    return [UIImage imageWithContentsOfFile:resourcePath];
+    
+}
+
 @end
