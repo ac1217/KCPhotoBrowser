@@ -86,6 +86,9 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
     
     self.imageView.frame =  CGRectMake(0, 0, width, height);
     
+    self.scrollView.contentSize = self.imageView.frame.size;
+    
+    
 }
 
 #pragma mark -UIScrollViewDelegate

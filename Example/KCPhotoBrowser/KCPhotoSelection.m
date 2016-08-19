@@ -127,7 +127,7 @@
             
             KCPhoto *photo3 = [[KCPhoto alloc] initWithURL:@"http://scs.ganjistatic1.com/gjfs12/M07/88/B2/CgEHC1T5kU6Bj5,jAACfYw6BWmA344_600-0_6-0.jpg"];
             
-            KCPhoto *photo4 = [[KCPhoto alloc] initWithURL:@"http://himg2.huanqiu.com/attachment2010/2016/0816/20160816060516924.jpg"];
+            KCPhoto *photo4 = [[KCPhoto alloc] initWithURL:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1471577406&di=e6235621a7140b926a3b53e417223157&src=http://p2.qhimg.com/t011fc13354f12d1a46.jpg"];
             
 //            
             photo0.placeholderImage = [UIImage imageNamed:@"photo1"];
