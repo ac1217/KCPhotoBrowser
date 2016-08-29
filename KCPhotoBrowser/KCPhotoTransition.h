@@ -14,7 +14,7 @@
 + (instancetype)dismissTransition;
 
 
-+ (instancetype)dismissInteractiveTransitionWithPresentingVC:(UIViewController *)presentingVC;
-@property (nonatomic, assign, getter=isInteracting) BOOL interacting;
+//+ (instancetype)dismissInteractiveTransitionWithPresentingVC:(UIViewController *)presentingVC;
+//@property (nonatomic, assign, getter=isInteracting) BOOL interacting;
 
 @end

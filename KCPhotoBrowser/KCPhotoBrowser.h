@@ -10,19 +10,9 @@
 #import <UIKit/UIKit.h>
 #import "KCPhoto.h"
 
-
-@protocol KCPhotoBrowserDataSource <NSObject>
-
-@required
-- (UIView *)sourceViewAtIndex:(NSInteger)index;
-
-@end
-
 @interface KCPhotoBrowser : UIViewController
 
-- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx;
-
-@property (nonatomic, weak) id<KCPhotoBrowserDataSource> dataSource;
+- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx sourceViewBlock:(UIView *(^)(NSInteger index))sourceViewBlock;
 
 @property (nonatomic, assign, readonly) NSInteger currentIndex;
 

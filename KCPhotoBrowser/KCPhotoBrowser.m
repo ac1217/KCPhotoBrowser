@@ -25,15 +25,22 @@
 
 @property (nonatomic, strong) NSArray *photos;
 
-@property (nonatomic, strong) KCPhotoTransition *dismissInteractiveTransition;
-
 @property (nonatomic, strong) UIAlertController *sheet;
+
+
+@property (nonatomic, copy) UIView *(^sourceViewBlock)(NSInteger index);
+
 
 @end
 
 @implementation KCPhotoBrowser
 
-- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx;
+- (void)dealloc
+{
+    self.sourceViewBlock = nil;
+}
+
+- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx sourceViewBlock:(UIView *(^)(NSInteger index))sourceViewBlock
 {
     if (self = [super init]) {
         
@@ -41,6 +48,7 @@
         self.transitioningDelegate = self;
         _photos = photos;
         _currentIndex = idx;
+        _sourceViewBlock = [sourceViewBlock copy];
     }
     
     return self;
@@ -57,8 +65,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self dismissInteractiveTransition];
-    
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
     [self.view addGestureRecognizer:singleTap];
     
@@ -70,8 +76,6 @@
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     [self.view addGestureRecognizer:longPress];
-    
-    _dismissInteractiveTransition = [KCPhotoTransition dismissInteractiveTransitionWithPresentingVC:self];
     
     self.navigationController.navigationBarHidden = YES;
     
@@ -85,7 +89,7 @@
     
     
     self.pageLabel.hidden = self.photos.count <= 1;
-    self.pageLabel.text = [NSString stringWithFormat:@"%zd of %zd", self.currentIndex + 1, self.photos.count];
+    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", self.currentIndex + 1, self.photos.count];
     
 }
 
@@ -94,7 +98,7 @@
 {
     [super viewDidAppear:animated];
     
-    [[self.dataSource sourceViewAtIndex:self.currentIndex] setHidden:YES];
+    [self.sourceViewBlock(self.currentIndex) setHidden:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -102,7 +106,7 @@
     [super viewDidDisappear:animated];
     
     
-    [[self.dataSource sourceViewAtIndex:self.currentIndex] setHidden:NO];
+    [self.sourceViewBlock(self.currentIndex) setHidden:NO];
 }
 
 #pragma mark -Event
@@ -128,6 +132,7 @@
     }
     
 }
+
 
 - (void)actionBtnClick
 {
@@ -222,13 +227,13 @@
     
     if (self.photos.count <= 1) return;
     
-    [[self.dataSource sourceViewAtIndex:self.currentIndex] setHidden:NO];
+    [self.sourceViewBlock(self.currentIndex) setHidden:NO];
     
     _currentIndex = (NSInteger)(scrollView.contentOffset.x / (scrollView.frame.size.width) + 0.5);
     
-    self.pageLabel.text = [NSString stringWithFormat:@"%zd of %zd", self.currentIndex + 1, self.photos.count];
+    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", self.currentIndex + 1, self.photos.count];
     
-    [[self.dataSource sourceViewAtIndex:self.currentIndex] setHidden:YES];
+    [self.sourceViewBlock(self.currentIndex) setHidden:YES];
 }
 
 
@@ -243,13 +248,6 @@
 {
     return [KCPhotoTransition dismissTransition];
 }
-
-- (id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator
-{
-    
-     return self.dismissInteractiveTransition.isInteracting ? self.dismissInteractiveTransition : nil;
-}
-
 
 #pragma mark -Getter
 - (UICollectionView *)collectionView

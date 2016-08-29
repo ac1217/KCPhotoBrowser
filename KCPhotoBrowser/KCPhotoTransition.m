@@ -17,26 +17,26 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
 
 @property (nonatomic, assign) NSInteger style;
 
-@property (nonatomic, weak) UIViewController *presentingVC;
-@property (nonatomic, assign) BOOL shouldComplete;
+//@property (nonatomic, weak) UIViewController *presentingVC;
+//@property (nonatomic, assign) BOOL shouldComplete;
 
 @end
 
 @implementation KCPhotoTransition
 
 
-+ (instancetype)dismissInteractiveTransitionWithPresentingVC:(UIViewController *)presentingVC
-{
-    KCPhotoTransition *t = [KCPhotoTransition new];
-    t.style = 2;
-    
-    t.presentingVC = presentingVC;
-    
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:t action:@selector(pan:)];
-    [presentingVC.view addGestureRecognizer:pan];
-    
-    return t;
-}
+//+ (instancetype)dismissInteractiveTransitionWithPresentingVC:(UIViewController *)presentingVC
+//{
+//    KCPhotoTransition *t = [KCPhotoTransition new];
+//    t.style = 2;
+//    
+//    t.presentingVC = presentingVC;
+//    
+//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:t action:@selector(pan:)];
+//    [presentingVC.view addGestureRecognizer:pan];
+//    
+//    return t;
+//}
 
 
 + (instancetype)presentTransition
@@ -75,7 +75,9 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
             [containerView addSubview:toVC.view];
             toVC.view.alpha = 0;
             
-            if (!toVC.dataSource) {
+            UIView *(^sourceViewBlock)(NSInteger index) = [toVC valueForKey:@"sourceViewBlock"];
+            
+            if (!sourceViewBlock) {
                 
                 [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
                     toVC.view.alpha = 1;
@@ -87,7 +89,8 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
             }
             
             NSInteger currentIndex = [[toVC valueForKey:@"currentIndex"] integerValue];
-            UIImageView *sourceView = (UIImageView *)[toVC.dataSource sourceViewAtIndex:currentIndex];
+            
+            UIImageView *sourceView = (UIImageView *)sourceViewBlock(currentIndex);
             
             UICollectionView *collectionView = [toVC valueForKey:@"collectionView"];
             collectionView.hidden = YES;
@@ -128,7 +131,8 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
             
             KCPhotoBrowser *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
             
-            if (!fromVC.dataSource) {
+            UIView *(^sourceViewBlock)(NSInteger index) = [fromVC valueForKey:@"sourceViewBlock"];
+            if (!sourceViewBlock) {
                 
                 [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
                     fromVC.view.alpha = 0;
@@ -140,8 +144,10 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
             }
             
             NSInteger currentIndex = [[fromVC valueForKey:@"currentIndex"] integerValue];
-            UIImageView *sourceView = (UIImageView *)[fromVC.dataSource sourceViewAtIndex:currentIndex];
             
+            
+            
+            UIImageView *sourceView = (UIImageView *)sourceViewBlock(currentIndex);
             
             UIImage *image = nil;
             if ([sourceView isKindOfClass:[UIImageView class]]) {
@@ -187,6 +193,7 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
     
 }
 
+/*
 #pragma mark -InteractiveTransition
 
 - (void)pan:(UIPanGestureRecognizer *)pan
@@ -231,5 +238,6 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
             break;
     }
 }
+ */
 
 @end

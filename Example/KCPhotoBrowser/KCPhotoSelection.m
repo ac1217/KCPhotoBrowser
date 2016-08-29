@@ -10,7 +10,7 @@
 #import "KCPhotoBrowser.h"
 #import "KCPhotoSelectionCell.h"
 
-@interface KCPhotoSelection ()<UICollectionViewDataSource, UICollectionViewDelegate, KCPhotoBrowserDataSource>
+@interface KCPhotoSelection ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -63,8 +63,11 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    KCPhotoBrowser *browser = [[KCPhotoBrowser alloc] initWithPhotos:self.photos currentIndex:indexPath.item];
-    browser.dataSource = self;
+    KCPhotoBrowser *browser = [[KCPhotoBrowser alloc] initWithPhotos:self.photos currentIndex:indexPath.item sourceViewBlock:^UIView *(NSInteger index) {
+        
+        return [[collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]] valueForKey:@"imageView"];
+        
+    }];
     
     [self presentViewController:browser animated:YES completion:nil];
 }
@@ -119,13 +122,13 @@
         
         NSMutableArray *tmp = @[].mutableCopy;
             
-            KCPhoto *photo0 = [[KCPhoto alloc] initWithURL:@"http://img10.360buyimg.com/imgzone/g13/M02/02/0C/rBEhVFM9IygIAAAAAAJXsJP3Z2sAALLgAM5cGQAAlfI313.jpg"];
+            KCPhoto *photo0 = [[KCPhoto alloc] initWithURL:@"http://img2.3lian.com/2014/f4/86/d/134.jpg"];
             
             KCPhoto *photo1 = [[KCPhoto alloc] initWithURL:@"http://ww2.sinaimg.cn/crop.0.0.980.300/b70b4830gw1ejuw3tbjtpj20r808c43f.jpg"];
             
             KCPhoto *photo2 = [[KCPhoto alloc] initWithURL:@"http://file.cbda.cn/uploadfile/2015/0330/20150330041852447.jpg"];
             
-            KCPhoto *photo3 = [[KCPhoto alloc] initWithURL:@"http://scs.ganjistatic1.com/gjfs12/M07/88/B2/CgEHC1T5kU6Bj5,jAACfYw6BWmA344_600-0_6-0.jpg"];
+            KCPhoto *photo3 = [[KCPhoto alloc] initWithURL:@"http://s3.sinaimg.cn/orignal/4c2da0e108f5f97486912"];
             
             KCPhoto *photo4 = [[KCPhoto alloc] initWithURL:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1471577406&di=e6235621a7140b926a3b53e417223157&src=http://p2.qhimg.com/t011fc13354f12d1a46.jpg"];
             

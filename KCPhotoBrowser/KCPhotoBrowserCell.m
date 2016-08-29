@@ -59,7 +59,6 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
     self.scrollView.maximumZoomScale = 2;
     self.scrollView.contentSize = CGSizeZero;
     
-    
     CGSize displayImgSize = self.imageView.image.kc_imageDisplaySize;
     
     CGFloat width = displayImgSize.width;
@@ -140,11 +139,12 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
 {
     _photo = photo;
     
-    
+    self.progressView.progress = 0;
     if (photo.image) {
         
         self.imageView.image = photo.image;
         [self layoutImageView];
+        self.progressView.progress = 1;
         
     }else if (photo.url) {
         
@@ -155,14 +155,15 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
             
         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             
+            self.progressView.progress = 1;
             [self layoutImageView];
         }];
         
     }else {
         self.imageView.image = photo.placeholderImage;
+        self.progressView.progress = 1;
     }
     
-    self.progressView.progress = 1;
     
 }
 
@@ -171,7 +172,6 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
 {
     if (!_imageView) {
         _imageView = [UIImageView new];
-        
     }
     return _imageView;
 }
@@ -184,6 +184,9 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
         _scrollView.delegate = self;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
+        
+ 
+        
         
     }
     return _scrollView;
