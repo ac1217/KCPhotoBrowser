@@ -13,7 +13,6 @@
 		07B3ABDA1D65A617006818DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABC21D65A617006818DE /* Assets.xcassets */; };
 		07B3ABDB1D65A617006818DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABC41D65A617006818DE /* LaunchScreen.storyboard */; };
 		07B3ABDC1D65A617006818DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABC61D65A617006818DE /* Main.storyboard */; };
-		07B3ABDD1D65A617006818DE /* HCQLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABC91D65A617006818DE /* HCQLogo.m */; };
 		07B3ABDE1D65A617006818DE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABCA1D65A617006818DE /* Info.plist */; };
 		07B3ABDF1D65A617006818DE /* KCPhotoSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABCC1D65A617006818DE /* KCPhotoSelection.m */; };
 		07B3ABE01D65A617006818DE /* KCPhotoSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABCE1D65A617006818DE /* KCPhotoSelectionCell.m */; };
@@ -63,8 +62,6 @@
 		07B3ABC21D65A617006818DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07B3ABC51D65A617006818DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07B3ABC71D65A617006818DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		07B3ABC81D65A617006818DE /* HCQLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCQLogo.h; sourceTree = "<group>"; };
-		07B3ABC91D65A617006818DE /* HCQLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCQLogo.m; sourceTree = "<group>"; };
 		07B3ABCA1D65A617006818DE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07B3ABCB1D65A617006818DE /* KCPhotoSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCPhotoSelection.h; sourceTree = "<group>"; };
 		07B3ABCC1D65A617006818DE /* KCPhotoSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCPhotoSelection.m; sourceTree = "<group>"; };
@@ -155,8 +152,6 @@
 				07B3ABC11D65A617006818DE /* AppDelegate.m */,
 				07B3ABC21D65A617006818DE /* Assets.xcassets */,
 				07B3ABC31D65A617006818DE /* Base.lproj */,
-				07B3ABC81D65A617006818DE /* HCQLogo.h */,
-				07B3ABC91D65A617006818DE /* HCQLogo.m */,
 				07B3ABCA1D65A617006818DE /* Info.plist */,
 				07B3ABCB1D65A617006818DE /* KCPhotoSelection.h */,
 				07B3ABCC1D65A617006818DE /* KCPhotoSelection.m */,
@@ -460,7 +455,6 @@
 				07B3ABE31D65A617006818DE /* KCPhotoActionController.m in Sources */,
 				07B3ABF81D65A62A006818DE /* KCPhotoTransition.m in Sources */,
 				07B3ABD91D65A617006818DE /* AppDelegate.m in Sources */,
-				07B3ABDD1D65A617006818DE /* HCQLogo.m in Sources */,
 				07B3ABDF1D65A617006818DE /* KCPhotoSelection.m in Sources */,
 				07B3ABF71D65A62A006818DE /* KCPhotoProgressView.m in Sources */,
 				07B3ABE21D65A617006818DE /* KCPhotoAction.m in Sources */,

@@ -63,11 +63,11 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    KCPhotoBrowser *browser = [[KCPhotoBrowser alloc] initWithPhotos:self.photos currentIndex:indexPath.item sourceViewBlock:^UIView *(NSInteger index) {
+     KCPhotoBrowser *browser =[[KCPhotoBrowser alloc] initWithPhotos:self.photos currentIndex:indexPath.item sourceImageViewBlock:^UIImageView *(NSInteger index) {
         
         return [[collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]] valueForKey:@"imageView"];
-        
     }];
+    
     
     [self presentViewController:browser animated:YES completion:nil];
 }
