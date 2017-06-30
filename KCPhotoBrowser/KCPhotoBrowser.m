@@ -17,6 +17,9 @@
 
 @property (nonatomic, strong) UILabel *pageLabel;
 
+
+@property (nonatomic,strong) UIPageControl *pageControl;
+
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic, strong) UIButton *actionBtn;
@@ -25,39 +28,63 @@
 
 @property (nonatomic, strong) NSArray *photos;
 
-@property (nonatomic, strong) UIAlertController *sheet;
+@property (nonatomic,strong) UIView *backgroundView;
 
 
-@property (nonatomic, copy) UIView *(^sourceViewBlock)(NSInteger index);
+@property (nonatomic, copy) UIImageView *(^sourceImageViewBlock)(NSInteger index);
 
 
 @end
 
 @implementation KCPhotoBrowser
 
-- (void)dealloc
+- (void)setCurrentIndex:(NSInteger)currentIndex
 {
-    self.sourceViewBlock = nil;
+    _currentIndex = currentIndex;
+    
+    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", currentIndex + 1, self.photos.count];
+    
+    self.pageControl.currentPage = currentIndex;
+    
+    
 }
 
-- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx sourceViewBlock:(UIView *(^)(NSInteger index))sourceViewBlock
+- (UIImageView *)displayImageView
 {
-    if (self = [super init]) {
-        
-        self.modalPresentationStyle = UIModalPresentationCustom;
-        self.transitioningDelegate = self;
-        _photos = photos;
-        _currentIndex = idx;
-        _sourceViewBlock = [sourceViewBlock copy];
-    }
     
+    KCPhotoBrowserCell *cell = self.collectionView.visibleCells.lastObject;
+    return cell.imageView;
+}
+
+- (UIImageView *)sourceImageView
+{
+    return !self.sourceImageViewBlock ? nil : self.sourceImageViewBlock(self.currentIndex);
+}
+
+- (UIModalPresentationStyle)modalPresentationStyle
+{
+    return UIModalPresentationCustom;
+}
+
+- (id<UIViewControllerTransitioningDelegate>)transitioningDelegate {
     return self;
 }
 
-
-- (BOOL)prefersStatusBarHidden
+- (void)dealloc
 {
-    return YES;
+    self.sourceImageViewBlock = nil;
+}
+
+- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx sourceImageViewBlock:(UIImageView *(^)(NSInteger))block
+{
+    if (self = [super init]) {
+        
+        _photos = photos;
+        self.currentIndex = idx;
+        self.sourceImageViewBlock = block;
+    }
+    
+    return self;
 }
 
 #pragma mark -Life Cycle
@@ -77,20 +104,80 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     [self.view addGestureRecognizer:longPress];
     
-    self.navigationController.navigationBarHidden = YES;
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self.view addGestureRecognizer:pan];
     
-    self.view.backgroundColor = [UIColor blackColor];
+//    self.navigationController.navigationBarHidden = YES;
+//    self.collectionView.backgroundColor = [UIColor redColor];
+    
+    [self.view addSubview:self.backgroundView];
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.pageLabel];
+    [self.view addSubview:self.pageControl];
     [self.view addSubview:self.actionBtn];
     
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
     
     
-    self.pageLabel.hidden = self.photos.count <= 1;
-    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", self.currentIndex + 1, self.photos.count];
+    self.pageControl.numberOfPages = self.photos.count;
     
+    
+    switch (self.indicatorStyle) {
+        case KCPhotoBrowserIndicatorStyleLabel:
+        {
+            self.pageControl.hidden = YES;
+            
+            if (self.hidesIndicatorForSingle) {
+                self.pageLabel.hidden = self.photos.count < 2;
+            }else {
+                self.pageLabel.hidden = NO;
+            }
+            
+        }
+            break;
+            
+        default:{
+            
+            self.pageLabel.hidden = YES;
+            self.pageControl.hidesForSinglePage = self.hidesIndicatorForSingle;
+        }
+            break;
+    }
+    
+    switch (self.indicatorPosition) {
+        case KCPhotoBrowserIndicatorPositionBottom:
+        {
+            self.pageLabel.frame = CGRectMake(0, self.view.bounds.size.height - self.actionBtn.frame.size.height, self.view.frame.size.width, self.actionBtn.frame.size.height);
+        }
+            break;
+            
+        default:{
+            
+            self.pageLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.actionBtn.frame.size.height);
+        }
+            break;
+    }
+    
+    self.pageControl.frame = self.pageLabel.frame;
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.collectionView.hidden = self.sourceImageView != nil;
+    self.view.window.windowLevel = UIWindowLevelStatusBar + 1;
+//    self.collectionView.hidden = ([self sourceImageView] != nil);
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.view.window.windowLevel = UIWindowLevelNormal;
 }
 
 
@@ -98,7 +185,8 @@
 {
     [super viewDidAppear:animated];
     
-    [self.sourceViewBlock(self.currentIndex) setHidden:YES];
+    self.collectionView.hidden = NO;
+    [self.sourceImageView setHidden:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -106,10 +194,70 @@
     [super viewDidDisappear:animated];
     
     
-    [self.sourceViewBlock(self.currentIndex) setHidden:NO];
+    [self.sourceImageView setHidden:NO];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 #pragma mark -Event
+
+- (void)pan:(UIPanGestureRecognizer *)pan
+{
+    
+    CGPoint transition = [pan translationInView:self.view];
+//    CGPoint transition = pan.translation(in: view)
+    
+    UICollectionViewCell *cell = self.collectionView.visibleCells.lastObject;
+//    let cell = collectionView.visibleCells.last
+    
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan:
+            
+            break;
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStatePossible:{
+            
+            if (transition.y > 30) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }else {
+                [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                    
+                    self.backgroundView.alpha = 1;
+                    cell.transform = CGAffineTransformIdentity;
+                } completion:nil];
+            }
+            
+            
+        }
+            break;
+        case UIGestureRecognizerStateChanged:{
+            CGFloat scale = MIN(1, MAX(0.3, 1 - transition.y / [UIScreen mainScreen].bounds.size.height));
+            
+            CGAffineTransform transform = CGAffineTransformMakeTranslation(transition.x / scale, transition.y / scale);
+            
+            
+            if (transition.y > 0) {
+                
+               transform = CGAffineTransformConcat(transform, CGAffineTransformMakeScale(scale, scale));
+            }
+            
+            self.backgroundView.alpha = scale;
+            
+            cell.transform = transform;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
 - (void)singleTap
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -137,7 +285,25 @@
 - (void)actionBtnClick
 {
     
-    [self presentViewController:self.sheet animated:YES completion:nil];
+    UIAlertController *sheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    
+    for (UIAlertAction *action in self.actions) {
+        [sheet addAction:action];
+    }
+    
+    [sheet addAction:[UIAlertAction actionWithTitle:@"保存图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        KCPhotoBrowserCell *cell = (KCPhotoBrowserCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentIndex inSection:0]];
+        
+        UIImageView *imageView = cell.imageView;
+        
+        UIImageWriteToSavedPhotosAlbum(imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        
+    }]];
+    
+    [self presentViewController:sheet animated:YES completion:nil];
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -191,16 +357,6 @@
     
 }
 
-#pragma mark -Public Method
-- (void)addAction:(UIAlertAction *)action
-{
-    [self.sheet addAction:action];
-}
-- (NSArray<UIAlertAction *> *)actions
-{
-    return self.sheet.actions;
-}
-
 #pragma mark -UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -227,13 +383,13 @@
     
     if (self.photos.count <= 1) return;
     
-    [self.sourceViewBlock(self.currentIndex) setHidden:NO];
+    [self.sourceImageView setHidden:NO];
     
-    _currentIndex = (NSInteger)(scrollView.contentOffset.x / (scrollView.frame.size.width) + 0.5);
+    self.currentIndex = (NSInteger)(scrollView.contentOffset.x / (scrollView.frame.size.width) + 0.5);
     
-    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", self.currentIndex + 1, self.photos.count];
+//    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", self.currentIndex + 1, self.photos.count];
     
-    [self.sourceViewBlock(self.currentIndex) setHidden:YES];
+    [self.sourceImageView setHidden:YES];
 }
 
 
@@ -312,29 +468,28 @@
     return _actionBtn;
 }
 
-- (UIAlertController *)sheet
+- (UIView *)backgroundView
 {
-    if (!_sheet) {
-        
-        __weak typeof(self) weakSelf = self;
-        _sheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        
-        [_sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-        
-        [_sheet addAction:[UIAlertAction actionWithTitle:@"保存图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            KCPhotoBrowserCell *cell = (KCPhotoBrowserCell *)[weakSelf.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:weakSelf.currentIndex inSection:0]];
-            
-            UIImageView *imageView = [cell valueForKey:@"imageView"];
-            
-            UIImageWriteToSavedPhotosAlbum(imageView.image, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-            
-        }]];
-
+    if (!_backgroundView) {
+        _backgroundView = [UIView new];
+        _backgroundView.backgroundColor = [UIColor blackColor];
+        _backgroundView.frame = [UIScreen mainScreen].bounds;
     }
-    return _sheet;
+    return _backgroundView;
 }
 
+- (UIPageControl *)pageControl
+{
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] init];
+        _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+        _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+        
+        _pageControl.enabled = NO;
+    }
+    
+    return _pageControl;
+}
 
 
 

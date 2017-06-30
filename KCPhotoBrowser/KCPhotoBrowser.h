@@ -10,14 +10,33 @@
 #import <UIKit/UIKit.h>
 #import "KCPhoto.h"
 
+typedef enum : NSUInteger {
+    KCPhotoBrowserIndicatorStylePageControl,
+    KCPhotoBrowserIndicatorStyleLabel
+} KCPhotoBrowserIndicatorStyle;
+
+typedef enum : NSUInteger {
+    KCPhotoBrowserIndicatorPositionBottom,
+    KCPhotoBrowserIndicatorPositionTop
+} KCPhotoBrowserIndicatorPosition;
+
 @interface KCPhotoBrowser : UIViewController
 
-- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx sourceViewBlock:(UIView *(^)(NSInteger index))sourceViewBlock;
+- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx sourceImageViewBlock:(UIImageView *(^)(NSInteger index))block;
+
+
+- (UIImageView *)sourceImageView;
+- (UIImageView *)displayImageView;
+
+
+
+@property (nonatomic,assign) BOOL hidesIndicatorForSingle;
+
+@property (nonatomic,assign) KCPhotoBrowserIndicatorPosition indicatorPosition;
+@property (nonatomic,assign) KCPhotoBrowserIndicatorStyle indicatorStyle;
 
 @property (nonatomic, assign, readonly) NSInteger currentIndex;
 
-- (void)addAction:(UIAlertAction *)action;
-
-@property (nonatomic, strong, readonly) NSArray <UIAlertAction *>*actions;
+@property (nonatomic, strong) NSArray <UIAlertAction *>*actions;
 
 @end

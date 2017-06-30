@@ -14,6 +14,7 @@ extern NSString *const KCPhotoBrowserCellReuseID;
 
 @interface KCPhotoBrowserCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) KCPhoto *photo;
 
 - (void)zooming;
