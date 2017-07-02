@@ -4,7 +4,7 @@
 use_frameworks!
 
 target 'KCPhotoBrowser' do
-pod 'SDWebImage', '~> 3.8.1'
+pod 'YYWebImage'
 end
 
 target 'KCPhotoBrowserTests' do

@@ -170,7 +170,7 @@
     
     self.collectionView.hidden = self.sourceImageView != nil;
     self.view.window.windowLevel = UIWindowLevelStatusBar + 1;
-//    self.collectionView.hidden = ([self sourceImageView] != nil);
+    //    self.collectionView.hidden = ([self sourceImageView] != nil);
     
 }
 
@@ -192,7 +192,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    
     
     [self.sourceImageView setHidden:NO];
 }

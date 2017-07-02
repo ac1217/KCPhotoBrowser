@@ -7,7 +7,7 @@
 //
 
 #import "KCPhotoSelectionCell.h"
-#import "UIImageView+WebCache.h"
+
 
 
 NSString *const KCPhotoSelectionCellReuseID = @"KCPhotoSelectionCell";
@@ -60,11 +60,11 @@ NSString *const KCPhotoSelectionCellReuseID = @"KCPhotoSelectionCell";
         
     }else if (photo.url) {
         
-        [self.imageView sd_setImageWithURL:photo.url placeholderImage:photo.placeholderImage options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            
-        }];
+//        [self.imageView sd_setImageWithURL:photo.url placeholderImage:photo.placeholderImage options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//            
+//        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//            
+//        }];
         
     }else {
         self.imageView.image = photo.placeholderImage;

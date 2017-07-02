@@ -94,6 +94,7 @@
                 imageView.frame = [sourceImageView.superview convertRect:sourceImageView.frame toView:toVC.view];
                 
                 [toVC.view insertSubview:imageView atIndex:1];
+                
 //                toVC.view.insertSubview(imageView, at: 1)
                 
                 [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.75 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -136,6 +137,7 @@
                     fromVC.view.alpha = 0;
                     displayImageView.frame = [sourceImageView.superview convertRect:sourceImageView.frame toView:containerView];
                 } completion:^(BOOL finished) {
+                    
                     [displayImageView removeFromSuperview];
                     [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                 }];
