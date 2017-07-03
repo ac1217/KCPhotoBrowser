@@ -1,0 +1,6 @@
+framework module Pods_KCPhotoBrowser {
+  umbrella header "Pods-KCPhotoBrowser-umbrella.h"
+
+  export *
+  module * { export * }
+}
