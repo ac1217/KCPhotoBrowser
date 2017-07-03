@@ -11,11 +11,12 @@
 #import "KCPhotoBrowserCell.h"
 #import "UIImage+KCPhoto.h"
 
-static NSTimeInterval const TransitionAnimationDuration = 0.5;
-
 @interface KCPhotoTransition ()
 
 @property (nonatomic, assign) NSInteger style;
+
+
+@property (nonatomic,assign) NSTimeInterval animationDuration;
 
 //@property (nonatomic, weak) UIViewController *presentingVC;
 //@property (nonatomic, assign) BOOL shouldComplete;
@@ -38,6 +39,14 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
 //    return t;
 //}
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.animationDuration = 0.5;
+    }
+    return self;
+}
+
 
 + (instancetype)presentTransition
 {
@@ -59,7 +68,7 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
 // synchronize with the main animation.
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext
 {
-    return TransitionAnimationDuration;
+    return self.animationDuration;
 }
 // This method can only  be a nop if the transition is interactive and not a percentDriven interactive transition.
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
@@ -75,55 +84,40 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
             [containerView addSubview:toVC.view];
             toVC.view.alpha = 0;
             
-            UIView *(^sourceViewBlock)(NSInteger index) = [toVC valueForKey:@"sourceViewBlock"];
-            
-            if (!sourceViewBlock) {
+            UIImageView *sourceImageView = toVC.sourceImageView;
+            if (sourceImageView) {
+                
+                UIImageView *imageView = [UIImageView new];
+                imageView.contentMode = UIViewContentModeScaleAspectFill;
+                imageView.clipsToBounds = true;
+                imageView.image = sourceImageView.image;
+                imageView.frame = [sourceImageView.superview convertRect:sourceImageView.frame toView:toVC.view];
+                
+                [toVC.view insertSubview:imageView atIndex:1];
+                
+//                toVC.view.insertSubview(imageView, at: 1)
+                
+                [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.75 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                    toVC.view.alpha = 1;
+                    imageView.frame = [sourceImageView.image kc_imageDisplayFrame];
+                } completion:^(BOOL finished) {
+                    [imageView removeFromSuperview];
+                    [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+                }];
+                
+
+                
+            }else {
                 
                 [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
                     toVC.view.alpha = 1;
                 } completion:^(BOOL finished) {
                     
-                    [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                    
+                    [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                 }];
-                return;
             }
-            
-            NSInteger currentIndex = [[toVC valueForKey:@"currentIndex"] integerValue];
-            
-            UIImageView *sourceView = (UIImageView *)sourceViewBlock(currentIndex);
-            
-            UICollectionView *collectionView = [toVC valueForKey:@"collectionView"];
-            collectionView.hidden = YES;
-            
-            UIImage *image = nil;
-            if ([sourceView isKindOfClass:[UIImageView class]]) {
-                image = sourceView.image;
-            }
-            
-            UIImageView *imageView = [UIImageView new];
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
-            imageView.clipsToBounds = YES;
-            imageView.image = image;
-            imageView.frame = [sourceView.superview convertRect:sourceView.frame toView:containerView];
-            
-            [containerView addSubview:imageView];
-            
-            CGRect endFrame = image.kc_imageDisplayFrame;
-            
-            
-            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.55 initialSpringVelocity:1/0.55 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                
-                imageView.frame = endFrame;
-                toVC.view.alpha = 1;
-                
-            } completion:^(BOOL finished) {
-                
-                collectionView.hidden = NO;
-                [imageView removeFromSuperview];
-                
-                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-            }];
-            
+        
         }
             
             break;
@@ -131,57 +125,33 @@ static NSTimeInterval const TransitionAnimationDuration = 0.5;
             
             KCPhotoBrowser *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
             
-            UIView *(^sourceViewBlock)(NSInteger index) = [fromVC valueForKey:@"sourceViewBlock"];
-            if (!sourceViewBlock) {
+            UIImageView *sourceImageView = fromVC.sourceImageView;
+            UIImageView *displayImageView = fromVC.displayImageView;
+            
+            if (sourceImageView && displayImageView) {
                 
-                [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+                displayImageView.frame = [displayImageView.superview convertRect:displayImageView.frame toView:containerView];
+                [containerView addSubview:displayImageView];
+                
+                [UIView animateWithDuration:[self transitionDuration:transitionContext] * 0.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                     fromVC.view.alpha = 0;
+                    displayImageView.frame = [sourceImageView.superview convertRect:sourceImageView.frame toView:containerView];
                 } completion:^(BOOL finished) {
                     
-                    [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                    [displayImageView removeFromSuperview];
+                    [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                 }];
-                return;
+                
+            }else {
+                
+                [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+                    fromVC.view.alpha = 1;
+                } completion:^(BOOL finished) {
+                    
+                    
+                    [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+                }];
             }
-            
-            NSInteger currentIndex = [[fromVC valueForKey:@"currentIndex"] integerValue];
-            
-            
-            
-            UIImageView *sourceView = (UIImageView *)sourceViewBlock(currentIndex);
-            
-            UIImage *image = nil;
-            if ([sourceView isKindOfClass:[UIImageView class]]) {
-                image = sourceView.image;
-            }
-            
-            UIImageView *currentImageView = [[[fromVC valueForKey:@"collectionView"] cellForItemAtIndexPath:[NSIndexPath indexPathForItem:currentIndex inSection:0]] valueForKey:@"imageView"];
-            
-            UIImageView *imageView = [UIImageView new];
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
-            imageView.clipsToBounds = YES;
-            imageView.image = image;
-            imageView.frame = [currentImageView.superview convertRect:currentImageView.frame toView:containerView];
-            [containerView addSubview:imageView];
-            
-            CGRect endFrame = [sourceView.superview convertRect:sourceView.frame toView:containerView];
-            
-            UICollectionView *collectionView = [fromVC valueForKey:@"collectionView"];
-            collectionView.hidden = YES;
-            
-            [UIView animateWithDuration:[self transitionDuration:transitionContext] * 0.5 animations:^{
-                imageView.frame = endFrame;
-                fromVC.view.alpha = 0;
-            } completion:^(BOOL finished) {
-                
-                if ([transitionContext transitionWasCancelled]) {
-                    collectionView.hidden = NO;
-                }
-                
-                [imageView removeFromSuperview];
-                
-                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-            }];
-
             
         }
             

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KCPhotoBrowser"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "好用轻量级图片浏览器."
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ac1217/KCPhotoBrowser.git", :tag => "0.0.6" }
+  s.source       = { :git => "https://github.com/ac1217/KCPhotoBrowser.git", :tag => "0.0.7" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -133,6 +133,6 @@ Pod::Spec.new do |s|
    s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-   s.dependency "SDWebImage", "~> 3.8.1"
+   s.dependency "YYWebImage"
 
 end

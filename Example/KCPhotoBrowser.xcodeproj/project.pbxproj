@@ -29,9 +29,9 @@
 		07B3ABFA1D65A62A006818DE /* UIImage+KCPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3ABF31D65A62A006818DE /* UIImage+KCPhoto.m */; };
 		07B3ABFE1D65B8CF006818DE /* icon_action@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABFC1D65B8CF006818DE /* icon_action@2x.png */; };
 		07B3ABFF1D65B8CF006818DE /* icon_action@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B3ABFD1D65B8CF006818DE /* icon_action@3x.png */; };
-		4E8BB9B759285AE8659B6F32 /* Pods_KCPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFD8934424D920030256DDC /* Pods_KCPhotoBrowser.framework */; };
-		7CFFA55FF352A30FB17BDBD4 /* Pods_KCPhotoBrowserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0E52ADF496F1DE6CB3EFFE /* Pods_KCPhotoBrowserUITests.framework */; };
-		9C22A78F01D58C22DE8A33ED /* Pods_KCPhotoBrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE4AEC0ECA96D6916E3DC25 /* Pods_KCPhotoBrowserTests.framework */; };
+		4A10B0BF75052AD6B3817286 /* Pods_KCPhotoBrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAF73BA017F6613EDDB3F97 /* Pods_KCPhotoBrowserTests.framework */; };
+		75B7E64FD7BDCA7DC9EFF925 /* Pods_KCPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E719AA6D8F7654E93D5013F /* Pods_KCPhotoBrowser.framework */; };
+		A02F94FBC794A89C4206D540 /* Pods_KCPhotoBrowserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 141C7364E375CB30A886102C /* Pods_KCPhotoBrowserUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,15 +92,15 @@
 		07B3ABF31D65A62A006818DE /* UIImage+KCPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KCPhoto.m"; sourceTree = "<group>"; };
 		07B3ABFC1D65B8CF006818DE /* icon_action@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_action@2x.png"; sourceTree = "<group>"; };
 		07B3ABFD1D65B8CF006818DE /* icon_action@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_action@3x.png"; sourceTree = "<group>"; };
-		2F0E52ADF496F1DE6CB3EFFE /* Pods_KCPhotoBrowserUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KCPhotoBrowserUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		33083809AA5CD3FCE2E3E3E7 /* Pods-KCPhotoBrowserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowserTests/Pods-KCPhotoBrowserTests.release.xcconfig"; sourceTree = "<group>"; };
-		382F048F6E6FF7AB50F64AC6 /* Pods-KCPhotoBrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowserUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowserUITests/Pods-KCPhotoBrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
-		533CD112D725C82273B0CC1A /* Pods-KCPhotoBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser.release.xcconfig"; sourceTree = "<group>"; };
-		8AAF17C63056F73A0F14744B /* Pods-KCPhotoBrowserUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowserUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowserUITests/Pods-KCPhotoBrowserUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		AC0074E192A382550DCBEC0A /* Pods-KCPhotoBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser.debug.xcconfig"; sourceTree = "<group>"; };
-		AFE4AEC0ECA96D6916E3DC25 /* Pods_KCPhotoBrowserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KCPhotoBrowserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D38B9EA5687072DFB380F18C /* Pods-KCPhotoBrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowserTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowserTests/Pods-KCPhotoBrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EEFD8934424D920030256DDC /* Pods_KCPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KCPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13184F557F9AA1E4978C60C7 /* Pods-KCPhotoBrowserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowserTests/Pods-KCPhotoBrowserTests.release.xcconfig"; sourceTree = "<group>"; };
+		141C7364E375CB30A886102C /* Pods_KCPhotoBrowserUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KCPhotoBrowserUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A1BE8EC0352C1A16B9D5CC8 /* Pods-KCPhotoBrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowserUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowserUITests/Pods-KCPhotoBrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3E719AA6D8F7654E93D5013F /* Pods_KCPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KCPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DDF09C7A440A4CE722184DB /* Pods-KCPhotoBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		AE9E035A00BDDDCB233BF8A8 /* Pods-KCPhotoBrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowserTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowserTests/Pods-KCPhotoBrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BBAF73BA017F6613EDDB3F97 /* Pods_KCPhotoBrowserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KCPhotoBrowserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC5FD729648EAE56F838DAA6 /* Pods-KCPhotoBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser.release.xcconfig"; sourceTree = "<group>"; };
+		F01F79A09D005E23FB04EEB5 /* Pods-KCPhotoBrowserUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KCPhotoBrowserUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KCPhotoBrowserUITests/Pods-KCPhotoBrowserUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E8BB9B759285AE8659B6F32 /* Pods_KCPhotoBrowser.framework in Frameworks */,
+				75B7E64FD7BDCA7DC9EFF925 /* Pods_KCPhotoBrowser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C22A78F01D58C22DE8A33ED /* Pods_KCPhotoBrowserTests.framework in Frameworks */,
+				4A10B0BF75052AD6B3817286 /* Pods_KCPhotoBrowserTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CFFA55FF352A30FB17BDBD4 /* Pods_KCPhotoBrowserUITests.framework in Frameworks */,
+				A02F94FBC794A89C4206D540 /* Pods_KCPhotoBrowserUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +138,8 @@
 				0713FC281D600EAC0057A15B /* KCPhotoBrowserTests */,
 				0713FC331D600EAC0057A15B /* KCPhotoBrowserUITests */,
 				0713FC0D1D600EAC0057A15B /* Products */,
-				2AE64FC28BD63744C577AE87 /* Pods */,
-				C3FA0C3204AC4840D95E3207 /* Frameworks */,
+				C7EAE9EFD27DB85F57CFE5FC /* Pods */,
+				5B409906B5A352E4C96D6476 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,27 +253,27 @@
 			path = ../../Resource;
 			sourceTree = "<group>";
 		};
-		2AE64FC28BD63744C577AE87 /* Pods */ = {
+		5B409906B5A352E4C96D6476 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC0074E192A382550DCBEC0A /* Pods-KCPhotoBrowser.debug.xcconfig */,
-				533CD112D725C82273B0CC1A /* Pods-KCPhotoBrowser.release.xcconfig */,
-				D38B9EA5687072DFB380F18C /* Pods-KCPhotoBrowserTests.debug.xcconfig */,
-				33083809AA5CD3FCE2E3E3E7 /* Pods-KCPhotoBrowserTests.release.xcconfig */,
-				8AAF17C63056F73A0F14744B /* Pods-KCPhotoBrowserUITests.debug.xcconfig */,
-				382F048F6E6FF7AB50F64AC6 /* Pods-KCPhotoBrowserUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		C3FA0C3204AC4840D95E3207 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EEFD8934424D920030256DDC /* Pods_KCPhotoBrowser.framework */,
-				AFE4AEC0ECA96D6916E3DC25 /* Pods_KCPhotoBrowserTests.framework */,
-				2F0E52ADF496F1DE6CB3EFFE /* Pods_KCPhotoBrowserUITests.framework */,
+				3E719AA6D8F7654E93D5013F /* Pods_KCPhotoBrowser.framework */,
+				BBAF73BA017F6613EDDB3F97 /* Pods_KCPhotoBrowserTests.framework */,
+				141C7364E375CB30A886102C /* Pods_KCPhotoBrowserUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7EAE9EFD27DB85F57CFE5FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DDF09C7A440A4CE722184DB /* Pods-KCPhotoBrowser.debug.xcconfig */,
+				EC5FD729648EAE56F838DAA6 /* Pods-KCPhotoBrowser.release.xcconfig */,
+				AE9E035A00BDDDCB233BF8A8 /* Pods-KCPhotoBrowserTests.debug.xcconfig */,
+				13184F557F9AA1E4978C60C7 /* Pods-KCPhotoBrowserTests.release.xcconfig */,
+				F01F79A09D005E23FB04EEB5 /* Pods-KCPhotoBrowserUITests.debug.xcconfig */,
+				1A1BE8EC0352C1A16B9D5CC8 /* Pods-KCPhotoBrowserUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,12 +283,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0713FC391D600EAC0057A15B /* Build configuration list for PBXNativeTarget "KCPhotoBrowser" */;
 			buildPhases = (
-				FB427C2A3732E455F3856299 /* [CP] Check Pods Manifest.lock */,
+				8DE06194A036F577A974BF3B /* [CP] Check Pods Manifest.lock */,
 				0713FC081D600EAC0057A15B /* Sources */,
 				0713FC091D600EAC0057A15B /* Frameworks */,
 				0713FC0A1D600EAC0057A15B /* Resources */,
-				7A8CD08A7D8DDFD4C2CC5EF7 /* [CP] Embed Pods Frameworks */,
-				13F3F67F88A846C0DC19CBC9 /* [CP] Copy Pods Resources */,
+				4C3AE930F9E8177C6CBAD581 /* [CP] Embed Pods Frameworks */,
+				A09E601C1F3B491F5128EF84 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -303,12 +303,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0713FC3C1D600EAC0057A15B /* Build configuration list for PBXNativeTarget "KCPhotoBrowserTests" */;
 			buildPhases = (
-				9425261B9EA86EDDAF965FD5 /* [CP] Check Pods Manifest.lock */,
+				A2E457E2E59DBFD70A28C5B7 /* [CP] Check Pods Manifest.lock */,
 				0713FC211D600EAC0057A15B /* Sources */,
 				0713FC221D600EAC0057A15B /* Frameworks */,
 				0713FC231D600EAC0057A15B /* Resources */,
-				7918CD94316176AD777F6BEA /* [CP] Embed Pods Frameworks */,
-				6C2017DD3915D48580FCCD70 /* [CP] Copy Pods Resources */,
+				50A1937B5D399039F6A078EC /* [CP] Embed Pods Frameworks */,
+				42716BD15BF6FB2811646B7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,12 +324,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0713FC3F1D600EAC0057A15B /* Build configuration list for PBXNativeTarget "KCPhotoBrowserUITests" */;
 			buildPhases = (
-				0AF5048546C63413F7EDAA84 /* [CP] Check Pods Manifest.lock */,
+				C57DDF078974647B56ED6D30 /* [CP] Check Pods Manifest.lock */,
 				0713FC2C1D600EAC0057A15B /* Sources */,
 				0713FC2D1D600EAC0057A15B /* Frameworks */,
 				0713FC2E1D600EAC0057A15B /* Resources */,
-				8AB8DADECC85831DCAA73BD3 /* [CP] Embed Pods Frameworks */,
-				CDF02743037B1D3A9FE648D3 /* [CP] Copy Pods Resources */,
+				4C9D1A181C0969B9944DC920 /* [CP] Embed Pods Frameworks */,
+				42632BBD558B6B7F0C8BAC65 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -417,112 +417,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0AF5048546C63413F7EDAA84 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		13F3F67F88A846C0DC19CBC9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6C2017DD3915D48580FCCD70 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowserTests/Pods-KCPhotoBrowserTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7918CD94316176AD777F6BEA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowserTests/Pods-KCPhotoBrowserTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7A8CD08A7D8DDFD4C2CC5EF7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8AB8DADECC85831DCAA73BD3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowserUITests/Pods-KCPhotoBrowserUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9425261B9EA86EDDAF965FD5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CDF02743037B1D3A9FE648D3 /* [CP] Copy Pods Resources */ = {
+		42632BBD558B6B7F0C8BAC65 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -537,7 +432,67 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowserUITests/Pods-KCPhotoBrowserUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB427C2A3732E455F3856299 /* [CP] Check Pods Manifest.lock */ = {
+		42716BD15BF6FB2811646B7B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowserTests/Pods-KCPhotoBrowserTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C3AE930F9E8177C6CBAD581 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C9D1A181C0969B9944DC920 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowserUITests/Pods-KCPhotoBrowserUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50A1937B5D399039F6A078EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowserTests/Pods-KCPhotoBrowserTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DE06194A036F577A974BF3B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -549,7 +504,52 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A09E601C1F3B491F5128EF84 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KCPhotoBrowser/Pods-KCPhotoBrowser-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2E457E2E59DBFD70A28C5B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C57DDF078974647B56ED6D30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -713,7 +713,7 @@
 		};
 		0713FC3A1D600EAC0057A15B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC0074E192A382550DCBEC0A /* Pods-KCPhotoBrowser.debug.xcconfig */;
+			baseConfigurationReference = 7DDF09C7A440A4CE722184DB /* Pods-KCPhotoBrowser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -728,7 +728,7 @@
 		};
 		0713FC3B1D600EAC0057A15B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 533CD112D725C82273B0CC1A /* Pods-KCPhotoBrowser.release.xcconfig */;
+			baseConfigurationReference = EC5FD729648EAE56F838DAA6 /* Pods-KCPhotoBrowser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -743,7 +743,7 @@
 		};
 		0713FC3D1D600EAC0057A15B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D38B9EA5687072DFB380F18C /* Pods-KCPhotoBrowserTests.debug.xcconfig */;
+			baseConfigurationReference = AE9E035A00BDDDCB233BF8A8 /* Pods-KCPhotoBrowserTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = KCPhotoBrowserTests/Info.plist;
@@ -756,7 +756,7 @@
 		};
 		0713FC3E1D600EAC0057A15B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33083809AA5CD3FCE2E3E3E7 /* Pods-KCPhotoBrowserTests.release.xcconfig */;
+			baseConfigurationReference = 13184F557F9AA1E4978C60C7 /* Pods-KCPhotoBrowserTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = KCPhotoBrowserTests/Info.plist;
@@ -769,7 +769,7 @@
 		};
 		0713FC401D600EAC0057A15B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AAF17C63056F73A0F14744B /* Pods-KCPhotoBrowserUITests.debug.xcconfig */;
+			baseConfigurationReference = F01F79A09D005E23FB04EEB5 /* Pods-KCPhotoBrowserUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = KCPhotoBrowserUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -781,7 +781,7 @@
 		};
 		0713FC411D600EAC0057A15B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 382F048F6E6FF7AB50F64AC6 /* Pods-KCPhotoBrowserUITests.release.xcconfig */;
+			baseConfigurationReference = 1A1BE8EC0352C1A16B9D5CC8 /* Pods-KCPhotoBrowserUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = KCPhotoBrowserUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

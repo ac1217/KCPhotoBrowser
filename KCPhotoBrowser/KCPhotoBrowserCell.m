@@ -8,7 +8,8 @@
 
 #import "KCPhotoBrowserCell.h"
 #import "UIImage+KCPhoto.h"
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
+#import "YYWebImage.h"
 #import "KCPhotoProgressView.h"
 
 NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
@@ -17,7 +18,6 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
-@property (nonatomic, strong) UIImageView *imageView;
 
 @property (nonatomic, strong) KCPhotoProgressView *progressView;
 
@@ -148,16 +148,15 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
         
     }else if (photo.url) {
         
-        
-        [self.imageView sd_setImageWithURL:photo.url placeholderImage:photo.placeholderImage options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        [self.imageView yy_setImageWithURL:photo.url placeholder:photo.placeholderImage options:YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
             self.progressView.progress = (double)receivedSize / expectedSize;
-            
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
             
             self.progressView.progress = 1;
             [self layoutImageView];
         }];
+        
         
     }else {
         self.imageView.image = photo.placeholderImage;
