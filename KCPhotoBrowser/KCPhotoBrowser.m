@@ -10,6 +10,7 @@
 #import "KCPhotoBrowserCell.h"
 #import "KCPhotoTransition.h"
 #import "UIImage+KCPhoto.h"
+#import "UIImageView+WebCache.h"
 
 @interface KCPhotoBrowser ()<UIViewControllerTransitioningDelegate,UICollectionViewDataSource, UICollectionViewDelegate>{
     NSInteger _currentIndex;
@@ -17,48 +18,75 @@
 
 @property (nonatomic, strong) UILabel *pageLabel;
 
-
 @property (nonatomic,strong) UIPageControl *pageControl;
 
-@property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic, strong) UIButton *actionBtn;
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
-@property (nonatomic, strong) NSArray *photos;
+//@property (nonatomic, strong) NSArray *photos;
 
 @property (nonatomic,strong) UIView *backgroundView;
 
 
-@property (nonatomic, copy) UIImageView *(^sourceImageViewBlock)(NSInteger index);
+//@property (nonatomic, copy) UIImageView *(^sourceImageViewBlock)(NSInteger index);
 
 
 @end
 
 @implementation KCPhotoBrowser
 
-- (void)setCurrentIndex:(NSInteger)currentIndex
+- (instancetype)initWithCurrentIndex:(NSInteger)currentIndex
 {
-    _currentIndex = currentIndex;
-    
-    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", currentIndex + 1, self.photos.count];
-    
-    self.pageControl.currentPage = currentIndex;
-    
-    
+    if (self = [super init]) {
+        _currentIndex = currentIndex;
+    }
+    return self;
 }
 
-- (UIImageView *)displayImageView
+#pragma mark -KCPhotoBrowserDataSource
+- (UIImage *)placeholderImageAtIndex:(NSInteger)index
+{
+    if ([_dataSource respondsToSelector:@selector(photoBrowser:placeholderImageAtIndex:)]) {
+        return [_dataSource photoBrowser:self placeholderImageAtIndex:index];
+    }
+    return nil;
+}
+
+- (NSInteger)numberOfImages
+{
+    return [_dataSource numberOfImagesInPhotoBrowser:self];
+}
+
+- (id)imageResourceAtIndex:(NSInteger)index
+{
+    return [_dataSource photoBrowser:self imageResourceAtIndex:index];
+}
+
+- (UIImageView *)sourceImageViewAtIndex:(NSUInteger)index
+{
+    
+    if ([_dataSource respondsToSelector:@selector(photoBrowser:sourceImageViewAtIndex:)]) {
+        
+        return [_dataSource photoBrowser:self sourceImageViewAtIndex:index];
+    }
+    return nil;
+}
+
+- (UIImageView *)currentDisplayImageView
 {
     
     KCPhotoBrowserCell *cell = self.collectionView.visibleCells.lastObject;
     return cell.imageView;
+    
 }
 
-- (UIImageView *)sourceImageView
+- (UIImageView *)currentSourceImageView
 {
-    return !self.sourceImageViewBlock ? nil : self.sourceImageViewBlock(self.currentIndex);
+//    return !self.sourceImageViewBlock ? nil : self.sourceImageViewBlock(self.currentIndex);
+    
+    return [self sourceImageViewAtIndex:_currentIndex];
 }
 
 - (UIModalPresentationStyle)modalPresentationStyle
@@ -70,18 +98,13 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.sourceImageViewBlock = nil;
-}
-
 - (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx sourceImageViewBlock:(UIImageView *(^)(NSInteger))block
 {
     if (self = [super init]) {
         
-        _photos = photos;
-        self.currentIndex = idx;
-        self.sourceImageViewBlock = block;
+//        _photos = photos;
+//        self.currentIndex = idx;
+//        self.sourceImageViewBlock = block;
     }
     
     return self;
@@ -107,21 +130,13 @@
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     [self.view addGestureRecognizer:pan];
     
-//    self.navigationController.navigationBarHidden = YES;
-//    self.collectionView.backgroundColor = [UIColor redColor];
-    
     [self.view addSubview:self.backgroundView];
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.pageLabel];
     [self.view addSubview:self.pageControl];
     [self.view addSubview:self.actionBtn];
     
-    
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
-    
-    
-    self.pageControl.numberOfPages = self.photos.count;
-    
+    self.pageControl.numberOfPages = [self numberOfImages];
     
     switch (self.indicatorStyle) {
         case KCPhotoBrowserIndicatorStyleLabel:
@@ -129,7 +144,7 @@
             self.pageControl.hidden = YES;
             
             if (self.hidesIndicatorForSingle) {
-                self.pageLabel.hidden = self.photos.count < 2;
+                self.pageLabel.hidden = [self numberOfImages] < 2;
             }else {
                 self.pageLabel.hidden = NO;
             }
@@ -162,38 +177,12 @@
     self.pageControl.frame = self.pageLabel.frame;
     
     
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_currentIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
     
-    self.collectionView.hidden = self.sourceImageView != nil;
-    self.view.window.windowLevel = UIWindowLevelStatusBar + 1;
-    //    self.collectionView.hidden = ([self sourceImageView] != nil);
+    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", _currentIndex + 1, [self numberOfImages]];
     
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    self.view.window.windowLevel = UIWindowLevelNormal;
-}
-
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+    self.pageControl.currentPage = _currentIndex;
     
-    self.collectionView.hidden = NO;
-    [self.sourceImageView setHidden:YES];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-    [self.sourceImageView setHidden:NO];
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -265,7 +254,7 @@
 - (void)doubleTap
 {
     
-    KCPhotoBrowserCell *cell = (KCPhotoBrowserCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentIndex inSection:0]];
+    KCPhotoBrowserCell *cell = (KCPhotoBrowserCell *)self.collectionView.visibleCells.lastObject;
     
     [cell zooming];
     
@@ -361,14 +350,14 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    return self.photos.count;
+    return [self numberOfImages];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     KCPhotoBrowserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:KCPhotoBrowserCellReuseID forIndexPath:indexPath];
     
-    cell.photo = self.photos[indexPath.row];
+    [cell setImageResource:[self imageResourceAtIndex:indexPath.item] placeholderImage:[self placeholderImageAtIndex:indexPath.item]];
     
     return cell;
 }
@@ -380,15 +369,17 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
-    if (self.photos.count <= 1) return;
+    if ([self numberOfImages] < 2) return;
     
-    [self.sourceImageView setHidden:NO];
+    [self.currentSourceImageView setHidden:NO];
     
-    self.currentIndex = (NSInteger)(scrollView.contentOffset.x / (scrollView.frame.size.width) + 0.5);
+    _currentIndex = (NSInteger)(scrollView.contentOffset.x / (scrollView.frame.size.width) + 0.5);
     
-//    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", self.currentIndex + 1, self.photos.count];
+    self.pageLabel.text = [NSString stringWithFormat:@"%zd / %zd", _currentIndex + 1, [self numberOfImages]];
     
-    [self.sourceImageView setHidden:YES];
+    self.pageControl.currentPage = _currentIndex;
+    
+    [self.currentSourceImageView setHidden:YES];
 }
 
 
@@ -420,7 +411,7 @@
         [_collectionView registerClass:[KCPhotoBrowserCell class] forCellWithReuseIdentifier:KCPhotoBrowserCellReuseID];
         
         _collectionView.pagingEnabled = YES;
-
+        _collectionView.hidden = self.currentSourceImageView != nil;
     }
     return _collectionView;
 }

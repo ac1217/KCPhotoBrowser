@@ -18,26 +18,10 @@
 
 @property (nonatomic,assign) NSTimeInterval animationDuration;
 
-//@property (nonatomic, weak) UIViewController *presentingVC;
-//@property (nonatomic, assign) BOOL shouldComplete;
 
 @end
 
 @implementation KCPhotoTransition
-
-
-//+ (instancetype)dismissInteractiveTransitionWithPresentingVC:(UIViewController *)presentingVC
-//{
-//    KCPhotoTransition *t = [KCPhotoTransition new];
-//    t.style = 2;
-//    
-//    t.presentingVC = presentingVC;
-//    
-//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:t action:@selector(pan:)];
-//    [presentingVC.view addGestureRecognizer:pan];
-//    
-//    return t;
-//}
 
 - (instancetype)init
 {
@@ -84,8 +68,10 @@
             [containerView addSubview:toVC.view];
             toVC.view.alpha = 0;
             
-            UIImageView *sourceImageView = toVC.sourceImageView;
+            UIImageView *sourceImageView = toVC.currentSourceImageView;
             if (sourceImageView) {
+                toVC.collectionView.hidden = YES;
+                sourceImageView.hidden = YES;
                 
                 UIImageView *imageView = [UIImageView new];
                 imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -93,7 +79,8 @@
                 imageView.image = sourceImageView.image;
                 imageView.frame = [sourceImageView.superview convertRect:sourceImageView.frame toView:toVC.view];
                 
-                [toVC.view insertSubview:imageView atIndex:1];
+//                [toVC.view insertSubview:imageView atIndex:1];
+                [containerView addSubview:imageView];
                 
 //                toVC.view.insertSubview(imageView, at: 1)
                 
@@ -103,6 +90,7 @@
                 } completion:^(BOOL finished) {
                     [imageView removeFromSuperview];
                     [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+                    toVC.collectionView.hidden = NO;
                 }];
                 
 
@@ -112,7 +100,6 @@
                 [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
                     toVC.view.alpha = 1;
                 } completion:^(BOOL finished) {
-                    
                     
                     [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                 }];
@@ -125,8 +112,8 @@
             
             KCPhotoBrowser *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
             
-            UIImageView *sourceImageView = fromVC.sourceImageView;
-            UIImageView *displayImageView = fromVC.displayImageView;
+            UIImageView *sourceImageView = fromVC.currentSourceImageView;
+            UIImageView *displayImageView = fromVC.currentDisplayImageView;
             
             if (sourceImageView && displayImageView) {
                 
@@ -140,6 +127,7 @@
                     
                     [displayImageView removeFromSuperview];
                     [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+                    sourceImageView.hidden = NO;
                 }];
                 
             }else {
@@ -147,7 +135,6 @@
                 [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
                     fromVC.view.alpha = 1;
                 } completion:^(BOOL finished) {
-                    
                     
                     [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                 }];

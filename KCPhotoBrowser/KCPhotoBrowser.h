@@ -20,15 +20,41 @@ typedef enum : NSUInteger {
     KCPhotoBrowserIndicatorPositionTop
 } KCPhotoBrowserIndicatorPosition;
 
+@class KCPhotoBrowser;
+@protocol KCPhotoBrowserDataSource <NSObject>
+
+- (NSInteger)numberOfImagesInPhotoBrowser:(KCPhotoBrowser *)photoBrowser;
+
+// 可以返回UIImage,NSString,NSURL,NSData类型
+- (id)photoBrowser:(KCPhotoBrowser *)photoBrowser imageResourceAtIndex:(NSInteger)index;
+
+@optional
+
+- (UIImage *)photoBrowser:(KCPhotoBrowser *)photoBrowser placeholderImageAtIndex:(NSInteger)index;
+
+- (UIImageView *)photoBrowser:(KCPhotoBrowser *)photoBrowser sourceImageViewAtIndex:(NSInteger)index;
+
+@end
+
+@protocol KCPhotoBrowserDelegate <NSObject>
+
+@optional
+
+@end
+
 @interface KCPhotoBrowser : UIViewController
 
-- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx sourceImageViewBlock:(UIImageView *(^)(NSInteger index))block;
+- (instancetype)initWithCurrentIndex:(NSInteger)currentIndex;
 
+@property (nonatomic,assign, readonly) NSInteger numberOfImages;
 
-- (UIImageView *)sourceImageView;
-- (UIImageView *)displayImageView;
+@property (nonatomic,weak) id<KCPhotoBrowserDataSource> dataSource;
+@property (nonatomic,weak) id<KCPhotoBrowserDelegate> delegate;
 
+@property (nonatomic,strong, readonly) UIImageView *currentSourceImageView;
+@property (nonatomic,strong, readonly) UIImageView *currentDisplayImageView;
 
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic,assign) BOOL hidesIndicatorForSingle;
 
@@ -38,5 +64,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign, readonly) NSInteger currentIndex;
 
 @property (nonatomic, strong) NSArray <UIAlertAction *>*actions;
+
+- (instancetype)initWithPhotos:(NSArray <KCPhoto *>*)photos currentIndex:(NSInteger)idx sourceImageViewBlock:(UIImageView *(^)(NSInteger index))block;
 
 @end

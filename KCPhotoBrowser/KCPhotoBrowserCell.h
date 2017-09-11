@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "KCPhoto.h"
+#import "KCPhotoProgressView.h"
 
 
 extern NSString *const KCPhotoBrowserCellReuseID;
@@ -15,7 +16,13 @@ extern NSString *const KCPhotoBrowserCellReuseID;
 @interface KCPhotoBrowserCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) KCPhoto *photo;
+
+@property (nonatomic, strong) KCPhotoProgressView *progressView;
+
+//@property (nonatomic, strong) KCPhoto *photo;
+
+
+- (void)setImageResource:(id)imageResource placeholderImage:(UIImage *)placeholderImage;
 
 - (void)zooming;
 

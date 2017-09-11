@@ -8,9 +8,8 @@
 
 #import "KCPhotoBrowserCell.h"
 #import "UIImage+KCPhoto.h"
-//#import "UIImageView+WebCache.h"
-#import "YYWebImage.h"
-#import "KCPhotoProgressView.h"
+#import "UIImageView+WebCache.h"
+//#import "YYWebImage.h"
 
 NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
 
@@ -18,8 +17,6 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
-
-@property (nonatomic, strong) KCPhotoProgressView *progressView;
 
 @end
 
@@ -72,7 +69,6 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
     CGFloat insetH = (self.contentView.frame.size.width - width) * 0.5;
     CGFloat insetV = (self.contentView.frame.size.height - height) * 0.5;
     
-    
     if (insetH < 0) {
         insetH = 0;
     }
@@ -83,11 +79,15 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
     
     self.scrollView.contentInset = UIEdgeInsetsMake(insetV, insetH, insetV, insetH);
     
-    self.imageView.frame =  CGRectMake(0, 0, width, height);
+    self.scrollView.contentSize = CGSizeMake(width, height);
     
-    self.scrollView.contentSize = self.imageView.frame.size;
+//    [UIView animateWithDuration:0.25
+//                     animations:^{
+     
+                         self.imageView.frame =  CGRectMake(0, 0, width, height);
+//                     }];
     
-    
+   
 }
 
 #pragma mark -UIScrollViewDelegate
@@ -135,6 +135,53 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
 }
 
 #pragma mark -Setter
+
+- (void)setImageResource:(id)imageResource placeholderImage:(UIImage *)placeholderImage
+{
+    
+    self.progressView.progress = 0;
+    if ([imageResource isKindOfClass:[UIImage class]]) {
+        
+        self.imageView.image = imageResource;
+        [self layoutImageView];
+        self.progressView.progress = 1;
+        
+    }else if ([imageResource isKindOfClass:[NSURL class]]) {
+        
+        [self.imageView sd_setImageWithPreviousCachedImageWithURL:imageResource placeholderImage:placeholderImage options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            
+            self.progressView.progress = (double)receivedSize / expectedSize;
+            
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+            self.progressView.progress = 1;
+            [self layoutImageView];
+        }];
+        
+    }else if ([imageResource isKindOfClass:[NSString class]]) {
+        
+        
+        [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:imageResource] placeholderImage:placeholderImage options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            
+            self.progressView.progress = (double)receivedSize / expectedSize;
+            
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+            self.progressView.progress = 1;
+            [self layoutImageView];
+        }];
+    }else if ([imageResource isKindOfClass:[NSData class]]) {
+        
+        self.imageView.image = [UIImage imageWithData:imageResource];
+        [self layoutImageView];
+        self.progressView.progress = 1;
+        
+        
+    }
+    
+}
+
+/*
 - (void)setPhoto:(KCPhoto *)photo
 {
     _photo = photo;
@@ -148,15 +195,15 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
         
     }else if (photo.url) {
         
-        [self.imageView yy_setImageWithURL:photo.url placeholder:photo.placeholderImage options:YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        [self.imageView sd_setImageWithPreviousCachedImageWithURL:photo.url placeholderImage:photo.placeholderImage options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
             self.progressView.progress = (double)receivedSize / expectedSize;
-        } transform:nil completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             
             self.progressView.progress = 1;
             [self layoutImageView];
         }];
-        
         
     }else {
         self.imageView.image = photo.placeholderImage;
@@ -164,7 +211,7 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
     }
     
     
-}
+}*/
 
 #pragma mark -Getter
 - (UIImageView *)imageView
@@ -183,9 +230,6 @@ NSString *const KCPhotoBrowserCellReuseID = @"KCPhotoBrowserCell";
         _scrollView.delegate = self;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
-        
- 
-        
         
     }
     return _scrollView;

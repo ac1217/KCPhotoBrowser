@@ -11,11 +11,11 @@
 
 #import "KCPhotoBrowser.h"
 
-@interface ViewController ()
+@interface ViewController ()<KCPhotoBrowserDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *iv;
 
-
+@property (nonatomic,strong) NSArray *arr;
 
 @end
 
@@ -55,19 +55,41 @@
     NSMutableArray *arr = @[].mutableCopy;
     
     for (int i = 1; i < 9; i++) {
-        [arr addObject:[KCPhoto photoWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"photo%zd", i]]]];
+        [arr addObject:[UIImage imageNamed:[NSString stringWithFormat:@"photo%zd", i]]];
     }
     
-    KCPhotoBrowser *browser = [[KCPhotoBrowser alloc] initWithPhotos:arr currentIndex:0 sourceImageViewBlock:^UIImageView *(NSInteger index) {
-        return self.iv;
-    }];
+    self.arr = arr;
     
+    KCPhotoBrowser *browser = [[KCPhotoBrowser alloc] initWithCurrentIndex:0];
+    browser.dataSource = self;
     
+//    KCPhotoBrowser *browser = [[KCPhotoBrowser alloc] initWithPhotos:arr currentIndex:0 sourceImageViewBlock:^UIImageView *(NSInteger index) {
+//        return self.iv;
+//    }];
     
     [self presentViewController:browser animated:YES completion:nil];
     
-   
-    
+}
+
+#pragma mark -KCPhotoBrowserDataSource
+- (NSInteger)numberOfImagesInPhotoBrowser:(KCPhotoBrowser *)photoBrowser
+{
+    return self.arr.count;
+}
+
+- (id)photoBrowser:(KCPhotoBrowser *)photoBrowser imageResourceAtIndex:(NSInteger)index
+{
+    return self.arr[index];
+}
+
+- (UIImage *)photoBrowser:(KCPhotoBrowser *)photoBrowser placeholderImageAtIndex:(NSInteger)index
+{
+    return [UIImage imageNamed:[NSString stringWithFormat:@"photo%zd", index + 1]];
+}
+
+- (UIImageView *)photoBrowser:(KCPhotoBrowser *)photoBrowser sourceImageViewAtIndex:(NSInteger)index
+{
+    return self.iv;
 }
 
 @end

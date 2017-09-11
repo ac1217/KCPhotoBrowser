@@ -4,7 +4,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'KCPhotoBrowser' do
-pod ‘YYWebImage'
+pod ‘SDWebImage'
 end
 
 target 'KCPhotoBrowserTests' do
