@@ -63,10 +63,6 @@
     KCPhotoBrowser *browser = [[KCPhotoBrowser alloc] initWithCurrentIndex:0];
     browser.dataSource = self;
     
-//    KCPhotoBrowser *browser = [[KCPhotoBrowser alloc] initWithPhotos:arr currentIndex:0 sourceImageViewBlock:^UIImageView *(NSInteger index) {
-//        return self.iv;
-//    }];
-    
     [self presentViewController:browser animated:YES completion:nil];
     
 }
