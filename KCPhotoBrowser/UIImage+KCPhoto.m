@@ -54,6 +54,8 @@
     }
     
     
+    
+    
     NSBundle *resourceBundle = [NSBundle bundleForClass:NSClassFromString(@"KCPhoto")];
     
     NSString *resourcePath = [resourceBundle pathForResource:@"KCPhotoBrowser" ofType:@"bundle"];
